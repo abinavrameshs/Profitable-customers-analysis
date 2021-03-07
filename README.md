@@ -29,6 +29,7 @@ The aim is to build a predictive model for `great_customers` and also to find th
 - Store Feature importances into the dated directory corresponding to the date of the run
 7. Perform SVM Classifier
 - Store Feature importances into the dated directory corresponding to the date of the run
+8. Written test cases to test DataLoaders(`test_DataLoaders.py`) and Preprocess module (`test_Preprocess.py`)
 
 ## Sample output of Performance metrics
 
@@ -59,3 +60,5 @@ https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mi
 Sklearn Pipeline: Get feature names after OneHotEncode In ColumnTransformer
 https://stackoverflow.com/questions/54646709/sklearn-pipeline-get-feature-names-after-onehotencode-in-columntransformer
 
+Unit testing in Python : 
+https://www.youtube.com/watch?v=6tNS--WetLI
