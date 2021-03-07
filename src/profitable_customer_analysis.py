@@ -28,7 +28,7 @@ def sort_file_paths(project_name: str):
     os.chdir(os.getcwd())
 
 def load_config():
-    run_configuration_file = '../resources/interview-test-final.json'
+    run_configuration_file = '../resources/profitable_customer_analysis.json'
     with open(run_configuration_file) as json_file:
         json_string = json_file.read()
         run_configuration = json.loads(json_string,
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     logging.info(f' #####################################')
     logging.info(f' ##### Load Project Configs #####')
     logging.info(f' #####################################')
-    sort_file_paths(project_name='interview-test-final')
+    sort_file_paths(project_name='profitable_customer_analysis')
     run_configuration = load_config()
 
     logging.info(f' #####################################')
