@@ -1,0 +1,4 @@
+{
+  "dataconfigs_directory": "../resources/data_configurations/",
+  "file_name" : "final_dataset.csv"
+}
