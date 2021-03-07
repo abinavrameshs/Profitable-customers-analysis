@@ -42,9 +42,27 @@ if __name__ == '__main__':
     logging.info('Starting classification program')
 
     # Actions: get into working directory, load project config, create dated directories
+    logging.info(f' #####################################')
+    logging.info(f' ##### Load Project Configs #####')
+    logging.info(f' #####################################')
     sort_file_paths(project_name='interview-test-final')
     run_configuration = load_config()
 
+    logging.info(f' #####################################')
+    logging.info(f' ##### Create dated directories for storing outputs #####')
+    logging.info(f' #####################################')
+
+    # Get the Current working directory of the python file being run
+    current_working_dir=os.getcwd()
+
+    # Create dated directory in data folder to store outputs (Assuming that dated directories are created to store outputs everyday)
+    os.chdir('../data')
+    os.makedirs(time.strftime("%Y%m%d"), exist_ok=True)
+    os.chdir(time.strftime("%Y%m%d")) 
+    output_path = os.getcwd() # Get the output path
+
+    #  Change Current directory back to the directory of the python file
+    os.chdir(current_working_dir)
 
     # TODO: Load the data by instantiating the FileDataLoader, handle file doesn't exist.
     # Candidate , instantiate your class here
@@ -121,6 +139,10 @@ if __name__ == '__main__':
     performance_metrics_rf = rf_model.get_metrics(y_pred=y_pred,y_actual=y_test)
     logging.info(f"performance_metrics_rf is \n {performance_metrics_rf} ")
 
+    os.chdir(output_path)
+    performance_metrics_rf.to_csv('performance_metrics_rf.csv', index=False)
+    os.chdir(current_working_dir)
+
     logging.info(f' #####################################')
     logging.info(f' ##### Obtain Dominant features #####')
     logging.info(f' #####################################')
@@ -129,6 +151,10 @@ if __name__ == '__main__':
     
     logging.info(f' Dominant features are \n {df_features} #####')
     
+    os.chdir(output_path)
+    df_features.to_csv('Dominant features Random Forest.csv', index=False)
+    os.chdir(current_working_dir)
+
     logging.info(f' #####################################')
     logging.info(f' ##### Running an SVM model #####')
     logging.info(f' #####################################')
@@ -139,6 +165,10 @@ if __name__ == '__main__':
     y_pred_svc=svc_model.predict(X_test=X_test)
     performance_metrics_svc = svc_model.get_metrics(y_pred=y_pred_svc,y_actual=y_test)
     logging.info(f"performance_metrics_svc is \n {performance_metrics_svc} ")
+
+    os.chdir(output_path)
+    performance_metrics_svc.to_csv('performance_metrics_svc.csv', index=False)
+    os.chdir(current_working_dir)
 
     T = time.time() - start_time
     logging.info(f'TOTAL RUNTIME of the Program = {T} secs')
