@@ -28,7 +28,7 @@ The aim is to build a predictive model for `great_customers` and also to find th
 - Store Performance metrics of Random Forest into the dated directory corresponding to the date of the run
 - Store Feature importances into the dated directory corresponding to the date of the run
 7. Perform SVM Classifier
-- Store Feature importances into the dated directory corresponding to the date of the run
+- Store Performance metrics of SVC into the dated directory corresponding to the date of the run
 8. Written test cases to test DataLoaders(`test_DataLoaders.py`) and Preprocess module (`test_Preprocess.py`)
 
 ## Sample output of Performance metrics
